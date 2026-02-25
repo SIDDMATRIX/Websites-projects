@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Smyl Pro — Dashboard</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.min.js"></script>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ═══ SIDEBAR ═══ -->
+<aside class="sidebar">
+  <div class="logo">
+    <div class="logo-icon">S</div>
+    <div class="logo-text">SIDD</div>
+    <div class="logo-badge">PRO</div>
+  </div>
+
+  <div class="nav-section">
+    <div class="nav-label">Overview</div>
+    <div class="nav-item active">
+      <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+      Dashboard
+    </div>
+    <div class="nav-item">
+      <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+      Analytics
+    </div>
+    <div class="nav-item">
+      <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+      Audience
+    </div>
+  </div>
+
+  <div class="nav-section">
+    <div class="nav-label">Content</div>
+    <div class="nav-item">
+      <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg>
+      Posts
+      <span class="badge">4</span>
+    </div>
+    <div class="nav-item">
+      <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+      Schedule
+    </div>
+    <div class="nav-item">
+      <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+      Comments
+    </div>
+  </div>
+
+  <div class="nav-section">
+    <div class="nav-label">Settings</div>
+    <div class="nav-item">
+      <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93A10 10 0 0 0 4.93 19.07M19.07 4.93A10 10 0 0 1 19.07 19.07"/></svg>
+      Integrations
+    </div>
+  </div>
+
+  <div class="sidebar-footer">
+    <div class="avatar">SY</div>
+    <div class="avatar-info">
+      <div class="avatar-name">Sidd</div>
+      <div class="avatar-role">Creator · Pro</div>
+    </div>
+    <svg class="avatar-more" width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><circle cx="12" cy="5" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="12" cy="19" r="1"/></svg>
+  </div>
+</aside>
+
+<!-- ═══ MAIN ═══ -->
+<main class="main">
+
+  <!-- Topbar -->
+  <div class="topbar">
+    <div>
+      <h1 class="page-title">Dashboard</h1>
+      <p class="page-sub" id="dateStr">Loading...</p>
+    </div>
+    <div class="topbar-actions">
+      <button class="btn-outline">
+        <svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" style="display:inline;vertical-align:middle;margin-right:5px"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        Export
+      </button>
+      <button class="btn-primary">
+        <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        New Post
+      </button>
+    </div>
+  </div>
+
+  <!-- Platform Tabs -->
+  <div class="platform-tabs">
+    <button class="ptab active" onclick="switchPlatform('all', this)">
+      <span class="dot" style="background:#777"></span> All Platforms
+    </button>
+    <button class="ptab" onclick="switchPlatform('instagram', this)">
+      <span class="dot" style="background:#e1306c"></span> Instagram
+    </button>
+    <button class="ptab" onclick="switchPlatform('linkedin', this)">
+      <span class="dot" style="background:#0a66c2"></span> LinkedIn
+    </button>
+    <button class="ptab" onclick="switchPlatform('twitter', this)">
+      <span class="dot" style="background:#1d9bf0"></span> Twitter / X
+    </button>
+  </div>
+
+  <!-- KPI Cards -->
+  <div class="kpi-grid">
+    <div class="kpi-card k1">
+      <div class="kpi-top">
+        <span class="kpi-label">Followers</span>
+        <div class="kpi-icon" style="background:rgba(200,255,87,0.1)">👥</div>
+      </div>
+      <div class="kpi-value" id="kv-followers">584K</div>
+      <div class="kpi-trend trend-up">▲ 12.4% vs last month</div>
+    </div>
+    <div class="kpi-card k2">
+      <div class="kpi-top">
+        <span class="kpi-label">Engagement</span>
+        <div class="kpi-icon" style="background:rgba(255,92,138,0.1)">❤️</div>
+      </div>
+      <div class="kpi-value" id="kv-engagement">47.2K</div>
+      <div class="kpi-trend trend-up">▲ 8.1% vs last month</div>
+    </div>
+    <div class="kpi-card k3">
+      <div class="kpi-top">
+        <span class="kpi-label">Reach</span>
+        <div class="kpi-icon" style="background:rgba(92,228,255,0.1)">📡</div>
+      </div>
+      <div class="kpi-value" id="kv-reach">1.04M</div>
+      <div class="kpi-trend trend-up">▲ 22.7% vs last month</div>
+    </div>
+    <div class="kpi-card k4">
+      <div class="kpi-top">
+        <span class="kpi-label">Impressions</span>
+        <div class="kpi-icon" style="background:rgba(167,139,250,0.1)">👁</div>
+      </div>
+      <div class="kpi-value" id="kv-impressions">3.6M</div>
+      <div class="kpi-trend trend-down">▼ 3.2% vs last month</div>
+    </div>
+  </div>
+
+  <!-- Row 1: Chart + Platforms -->
+  <div class="row">
+    <div class="panel">
+      <div class="panel-header">
+        <div class="panel-title">Growth Overview</div>
+        <div style="display:flex;gap:8px">
+          <button class="btn-outline range-btn" onclick="setRange('7d', this)">7d</button>
+          <button class="btn-outline range-btn active-range" onclick="setRange('30d', this)">30d</button>
+          <button class="btn-outline range-btn" onclick="setRange('90d', this)">90d</button>
+        </div>
+      </div>
+      <div class="chart-wrap">
+        <canvas id="growthChart"></canvas>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-header">
+        <div class="panel-title">By Platform</div>
+        <span class="panel-action">View all →</span>
+      </div>
+      <div class="platform-row">
+        <div class="platform-ico" style="background:rgba(225,48,108,0.12)">📸</div>
+        <div>
+          <div class="platform-name">Instagram</div>
+          <div class="platform-handle">@sofiayoung</div>
+        </div>
+        <div class="plat-bar-wrap"><div class="plat-bar" style="width:78%;background:#e1306c"></div></div>
+        <div class="platform-stat">
+          <div class="platform-stat-val">312K</div>
+          <div class="platform-stat-label">followers</div>
+        </div>
+      </div>
+      <div class="platform-row">
+        <div class="platform-ico" style="background:rgba(10,102,194,0.12)">💼</div>
+        <div>
+          <div class="platform-name">LinkedIn</div>
+          <div class="platform-handle">Sofia Young</div>
+        </div>
+        <div class="plat-bar-wrap"><div class="plat-bar" style="width:45%;background:#0a66c2"></div></div>
+        <div class="platform-stat">
+          <div class="platform-stat-val">158K</div>
+          <div class="platform-stat-label">followers</div>
+        </div>
+      </div>
+      <div class="platform-row">
+        <div class="platform-ico" style="background:rgba(29,155,240,0.12)">🐦</div>
+        <div>
+          <div class="platform-name">Twitter / X</div>
+          <div class="platform-handle">@sofiayoung</div>
+        </div>
+        <div class="plat-bar-wrap"><div class="plat-bar" style="width:36%;background:#1d9bf0"></div></div>
+        <div class="platform-stat">
+          <div class="platform-stat-val">114K</div>
+          <div class="platform-stat-label">followers</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Row 2: Posts + Audience + Activity -->
+  <div class="row2">
+    <div class="panel">
+      <div class="panel-header">
+        <div class="panel-title">Top Posts</div>
+        <span class="panel-action">See all →</span>
+      </div>
+      <div class="post-item">
+        <div class="post-thumb" style="background:rgba(225,48,108,0.1)">🌅</div>
+        <div class="post-body">
+          <div class="post-text">Golden hour vibes — this light literally made my morning ✨ So grateful</div>
+          <div class="post-meta">
+            <span class="post-plat" style="background:rgba(225,48,108,0.12);color:#e1306c">IG</span>
+            <span class="post-time">2h ago</span>
+          </div>
+        </div>
+        <div class="post-stats">
+          <div class="post-stat">❤️ <span>8.4K</span></div>
+          <div class="post-stat">💬 <span>342</span></div>
+        </div>
+      </div>
+      <div class="post-item">
+        <div class="post-thumb" style="background:rgba(10,102,194,0.1)">🧠</div>
+        <div class="post-body">
+          <div class="post-text">5 things I wish I knew before building my personal brand from scratch</div>
+          <div class="post-meta">
+            <span class="post-plat" style="background:rgba(10,102,194,0.12);color:#5aa3e8">LI</span>
+            <span class="post-time">1d ago</span>
+          </div>
+        </div>
+        <div class="post-stats">
+          <div class="post-stat">❤️ <span>4.1K</span></div>
+          <div class="post-stat">💬 <span>219</span></div>
+        </div>
+      </div>
+      <div class="post-item">
+        <div class="post-thumb" style="background:rgba(29,155,240,0.1)">🔥</div>
+        <div class="post-body">
+          <div class="post-text">Hot take: Authenticity &gt; Perfection. Every. Single. Time. Thread 🧵</div>
+          <div class="post-meta">
+            <span class="post-plat" style="background:rgba(29,155,240,0.12);color:#1d9bf0">𝕏</span>
+            <span class="post-time">3d ago</span>
+          </div>
+        </div>
+        <div class="post-stats">
+          <div class="post-stat">❤️ <span>2.9K</span></div>
+          <div class="post-stat">🔁 <span>841</span></div>
+        </div>
+      </div>
+      <div class="post-item">
+        <div class="post-thumb" style="background:rgba(200,255,87,0.1)">📊</div>
+        <div class="post-body">
+          <div class="post-text">Q3 content recap — what worked, what flopped, and what's next</div>
+          <div class="post-meta">
+            <span class="post-plat" style="background:rgba(10,102,194,0.12);color:#5aa3e8">LI</span>
+            <span class="post-time">5d ago</span>
+          </div>
+        </div>
+        <div class="post-stats">
+          <div class="post-stat">❤️ <span>1.7K</span></div>
+          <div class="post-stat">💬 <span>98</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-header">
+        <div class="panel-title">Audience</div>
+        <span class="panel-action">Details →</span>
+      </div>
+      <div class="donut-wrap">
+        <div class="donut-chart">
+          <canvas id="donutChart"></canvas>
+          <div class="donut-label">
+            <div class="donut-val">584K</div>
+            <div class="donut-sub">Total</div>
+          </div>
+        </div>
+        <div class="legend-list">
+          <div class="legend-item">
+            <div class="legend-dot" style="background:#e1306c"></div>
+            <div class="legend-text">Instagram</div>
+            <div class="legend-pct">53%</div>
+          </div>
+          <div class="legend-item">
+            <div class="legend-dot" style="background:#0a66c2"></div>
+            <div class="legend-text">LinkedIn</div>
+            <div class="legend-pct">27%</div>
+          </div>
+          <div class="legend-item">
+            <div class="legend-dot" style="background:#1d9bf0"></div>
+            <div class="legend-text">Twitter</div>
+            <div class="legend-pct">20%</div>
+          </div>
+        </div>
+      </div>
+      <div class="panel-header" style="margin-top:16px;margin-bottom:10px">
+        <div class="panel-title" style="font-size:13px">Age Groups</div>
+      </div>
+      <div id="ageBars"></div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-header">
+        <div class="panel-title">Recent Activity</div>
+        <span class="panel-action">All →</span>
+      </div>
+      <div class="activity-item">
+        <div class="act-dot" style="background:#c8ff57"></div>
+        <div>
+          <div class="act-text"><span class="act-highlight">@marcelo_r</span> mentioned you in a comment</div>
+          <div class="act-time">Just now</div>
+        </div>
+      </div>
+      <div class="activity-item">
+        <div class="act-dot" style="background:#e1306c"></div>
+        <div>
+          <div class="act-text">Your Instagram post reached <span class="act-highlight">50K impressions</span></div>
+          <div class="act-time">14 min ago</div>
+        </div>
+      </div>
+      <div class="activity-item">
+        <div class="act-dot" style="background:#1d9bf0"></div>
+        <div>
+          <div class="act-text"><span class="act-highlight">@techweekly</span> retweeted your thread</div>
+          <div class="act-time">1h ago</div>
+        </div>
+      </div>
+      <div class="activity-item">
+        <div class="act-dot" style="background:#a78bfa"></div>
+        <div>
+          <div class="act-text">New follower milestone: <span class="act-highlight">584K</span> total 🎉</div>
+          <div class="act-time">3h ago</div>
+        </div>
+      </div>
+      <div class="activity-item">
+        <div class="act-dot" style="background:#0a66c2"></div>
+        <div>
+          <div class="act-text">LinkedIn post <span class="act-highlight">"5 things..."</span> is trending</div>
+          <div class="act-time">1d ago</div>
+        </div>
+      </div>
+      <div class="activity-item">
+        <div class="act-dot" style="background:#c8ff57"></div>
+        <div>
+          <div class="act-text">Scheduled post published on <span class="act-highlight">Instagram</span></div>
+          <div class="act-time">2d ago</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>
