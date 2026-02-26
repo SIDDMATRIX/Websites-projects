@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>University Course Catalog</title>
+
+<style>
+    body {
+        font-family: "Georgia", serif;
+        background: #f5f5f5;
+        margin: 0;
+        padding: 0;
+    }
+
+    .container {
+        width: 85%;
+        margin: 30px auto;
+        background: #fff;
+        padding: 25px;
+        border: 1px solid #aaa;
+        box-shadow: 0 0 12px rgba(0,0,0,0.1);
+    }
+
+    h1 {
+        font-size: 32px;
+        margin-bottom: 10px;
+    }
+
+    h2 {
+        text-align: center;
+        margin-bottom: 15px;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    table, th, td {
+        border: 2px solid #444;
+    }
+
+    th, td {
+        padding: 15px;
+        vertical-align: top;
+    }
+
+    th {
+        background: #eee;
+        text-align: center;
+    }
+
+    ul {
+        margin: 5px 0 10px 20px;
+    }
+
+    li {
+        margin-bottom: 5px;
+    }
+
+    .nested-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 10px;
+    }
+
+    .nested-table th,
+    .nested-table td {
+        border: 2px solid #444;
+        padding: 10px;
+    }
+
+    .nested-table th {
+        background: #eee;
+    }
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>University Course Catalog</h1>
+
+    <h2>Departments and Courses</h2>
+
+    <table>
+        <tr>
+            <th>Department</th>
+            <th>Courses</th>
+        </tr>
+
+        <!-- Computer Science -->
+        <tr>
+            <td>Computer Science</td>
+            <td>
+                <ul>
+                    <li><strong>Web Development</strong>
+                        <ul>
+                            <li>Frontend (HTML, CSS, JavaScript)</li>
+                            <li>Backend (Node.js, Express)</li>
+                        </ul>
+                    </li>
+                    <li><strong>Data Science</strong>
+                        <ul>
+                            <li>Python Programming</li>
+                            <li>Machine Learning</li>
+                        </ul>
+                    </li>
+                </ul>
+            </td>
+        </tr>
+
+        <!-- Business Administration -->
+        <tr>
+            <td>Business Administration</td>
+            <td>
+                <ul>
+                    <li><strong>Marketing</strong>
+                        <ul>
+                            <li>Digital Marketing</li>
+                            <li>Brand Management</li>
+                        </ul>
+                    </li>
+                    <li><strong>Finance</strong>
+                        <ul>
+                            <li>Corporate Finance</li>
+                            <li>Investment Banking</li>
+                        </ul>
+                    </li>
+                </ul>
+            </td>
+        </tr>
+
+        <!-- Engineering -->
+        <tr>
+            <td>Engineering</td>
+            <td>
+
+                <table class="nested-table">
+                    <tr>
+                        <th>Branch</th>
+                        <th>Subjects</th>
+                    </tr>
+
+                    <tr>
+                        <td>Mechanical</td>
+                        <td>
+                            <ul>
+                                <li>Thermodynamics</li>
+                                <li>Fluid Mechanics</li>
+                            </ul>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>Civil</td>
+                        <td>
+                            <ul>
+                                <li>Structural Engineering</li>
+                                <li>Environmental Engineering</li>
+                            </ul>
+                        </td>
+                    </tr>
+
+                </table>
+
+            </td>
+        </tr>
+
+    </table>
+
+</div>
+
+</body>
+</html>
